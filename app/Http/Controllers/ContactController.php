@@ -3,7 +3,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\ContactMeRequest;
 use Illuminate\Support\Facades\Mail;
-
+use GuzzleHttp\Client;
 class ContactController extends Controller
 {
     /**

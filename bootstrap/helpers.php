@@ -56,14 +56,29 @@ function get_aws_config()
             'AWS_KEY' => getenv('AWS_KEY'),
             'AWS_SECRET' => getenv('AWS_SECRET'),
             'AWS_REGION'=>getenv('AWS_REGION'),
-            'AWS_BUCKET'=>getenv('boris-blog'),
+            'AWS_BUCKET'=>getenv('AWS_BUCKET')
         ];
     } else {
         return $aws_config = [
-            'username' => env('MAIL_USERNAME'),
-            'password' => env('MAIL_PASSWORD'),
-            'domain'=>env('MAILGUN_DOMAIN'),
-            'secret'=>env('MAILGUN_SECRET')
+            'AWS_KEY' => env('AWS_KEY'),
+            'AWS_SECRET' => env('AWS_SECRET'),
+            'AWS_REGION'=>env('AWS_REGION'),
+            'AWS_BUCKET'=>env('AWS_BUCKET')
+        ];
+    }
+}
+
+function get_recaptcha_config()
+{
+    if (getenv('IS_IN_HEROKU')) {
+        return $recaptcha_config = [
+            'RECAPTCHA_PUBLIC_KEY' => getenv('RECAPTCHA_PUBLIC_KEY'),
+            'RECAPTCHA_PRIVATE_KEY' => getenv('RECAPTCHA_PRIVATE_KEY')
+        ];
+    } else {
+        return $recaptcha_config = [
+            'RECAPTCHA_PUBLIC_KEY' => env('RECAPTCHA_PUBLIC_KEY'),
+            'RECAPTCHA_PRIVATE_KEY' => env('RECAPTCHA_PRIVATE_KEY')
         ];
     }
 }

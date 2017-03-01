@@ -29,7 +29,7 @@
           Want to get in touch with me? Fill out the form below to send me a
           message and I will try to get back to you within 24 hours!
         </p>
-        <form action="/contact" method="post">
+        <form id="form" action="/contact" method="post">
           <input type="hidden" name="_token" value="{!! csrf_token() !!}">
           <div class="row control-group">
             <div class="form-group col-xs-12">
@@ -59,6 +59,8 @@
                         name="message">{{ old('message') }}</textarea>
             </div>
           </div>
+          <br>
+          {!! Recaptcha::render() !!}
           <br>
           <div class="row">
             <div class="form-group col-xs-12">

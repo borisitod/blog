@@ -1,5 +1,5 @@
 <?php
-
+$aws_config = get_aws_config();
 return [
 
     /*
@@ -64,10 +64,10 @@ return [
 
         's3' => [
             'driver' => 's3',
-            'key'    => env('AWS_KEY'),
-            'secret' => env('AWS_SECRET'),
-            'region' => env('AWS_REGION'),
-            'bucket' => env('AWS_BUCKET'),
+            'key'    => $aws_config['AWS_KEY'],
+            'secret' => $aws_config['AWS_SECRET'],
+            'region' => $aws_config['AWS_REGION'],
+            'bucket' => $aws_config['AWS_BUCKET'],
         ],
 
         'rackspace' => [
