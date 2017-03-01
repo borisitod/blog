@@ -82,7 +82,7 @@ return [
     |
     */
 
-    'username' => $mail_config['username'],
+    'username' => 'postmaster@iar.life',
 
     /*
     |--------------------------------------------------------------------------
